@@ -3,7 +3,7 @@ import User from '../models/User';
 
 class UserController {
   async store(req, res) {
-    // criação do esquema de validação do yup
+    // Esquema que representa a validação dos dados recebido pelo usuário
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
       email: Yup.string()
@@ -13,7 +13,7 @@ class UserController {
         .required()
         .min(6),
     });
-
+    // Teste do schema
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails.' });
     }
@@ -35,7 +35,6 @@ class UserController {
   }
 
   async update(req, res) {
-    // criação do esquema de validação do yup
     const schema = Yup.object().shape({
       nome: Yup.string(),
       email: Yup.string().email(),

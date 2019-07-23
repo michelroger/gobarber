@@ -25,6 +25,9 @@ class User extends Model {
     return this;
   }
 
+  /*
+  Comparação do password recebido pelo cliente com o hash gerado pelo bcrypt
+  */
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);
   }

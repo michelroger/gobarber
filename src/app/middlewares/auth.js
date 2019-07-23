@@ -1,3 +1,6 @@
+/*
+middleware responsável por testar e validar o token utilizando jwt
+*/
 import jwt from 'jsonwebtoken';
 import { promisify } from 'util';
 import authConfig from '../../config/auth';
