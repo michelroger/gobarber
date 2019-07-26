@@ -25,6 +25,13 @@ class User extends Model {
     return this;
   }
 
+  // Cria o relacionamento da tabela Files com a tabela Users
+  static associate(models) {
+    // pertence A models de file
+    // Salva o id da tabela files na tabela users referenciando avatar_id como chave estrangeira da tebela files
+    this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
+  }
+
   /*
   Comparação do password recebido pelo cliente com o hash gerado pelo bcrypt
   */
